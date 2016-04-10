@@ -6,11 +6,11 @@ import titleBar from '../titleBar/titleBar';
 import slider from '../slider/slider';
 import articleCarousel from '../articleCarousel/articleCarousel';
 
-import './home.view.html';
+import './landingPage.html';
 
 class HomeCtrl {}
 
-const name = 'home';
+const name = 'landingPage';
 
 export default angular.module(name, [
   angularMeteor,
@@ -20,16 +20,18 @@ export default angular.module(name, [
   articleCarousel.name
 ])
 .component(name, {
-  templateUrl: `imports/${name}/${name}.view.html`,
+  templateUrl: `imports/components/${name}/${name}.html`,
   controller: HomeCtrl
 })
 .config(config);
+
+config.$inject = ['$stateProvider'];
 
 function config($stateProvider){
   'ngInject';
   $stateProvider
     .state('home', {
       url: '/',
-      template: '<home></home>'
+      template: '<landing-page></landing-page>'
   });
 }
