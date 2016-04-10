@@ -6,10 +6,11 @@ import {Meteor} from 'meteor/meteor';
 import './loginRegister.html';
 
 class LoginRegisterCtrl {
-  constructor($state){
+  constructor(){
     this.errMsg = '';
   }
 
+  //Login Function
   login(email, password){
     //Validate Form
     if(email && password){
@@ -18,6 +19,7 @@ class LoginRegisterCtrl {
   }
 
 
+  // Register Function
   register(email, password, password2){
     console.log(email, password, password2);
     //Validate Form
@@ -31,6 +33,7 @@ class LoginRegisterCtrl {
     }
   }
 
+  //On success login/register takes you back to home state
   createUserCallback(err, data){
     if(err) throw console.log(err);
     console.log(data);
