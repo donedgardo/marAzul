@@ -7,6 +7,7 @@
 			<li><a href="#tab2">Register</a></li>
 		</ul>
 
+
 		<div class="tabs-container">
 			<!-- Login -->
 			<div class="tab-content" id="tab1" style="display: none;">
@@ -51,8 +52,11 @@
 
 					<form method="post" class="register" novalidate=""
           ng-submit="loginRegister.register(loginRegister.email, loginRegister.password, loginRegister.password2)">
-
-						<p class="form-row form-row-wide">
+					
+					<p class="warn" ng-show="loginRegister.errMsg">
+						{{loginRegister.errMsg}}
+					</p>
+					<p class="form-row form-row-wide">
 							<label for="reg_email">Email Address: <span class="required">*</span></label>
 							<input type="email" class="input-text" name="email" id="reg_email" value=""
               ng-model="loginRegister.email"/>

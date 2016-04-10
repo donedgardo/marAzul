@@ -5,43 +5,41 @@ import {Meteor} from 'meteor/meteor';
 
 import './loginRegister.html';
 
-class LoginRegisterCtrl {
-  constructor(){
-    this.errMsg = '';
-  }
+function LoginRegisterCtrl($scope, $state, $reactive) {
+  'ngInject';
+  this.errMsg = '';
+  
+  $reactive(this).attach($scope);
 
-  //Login Function
-  login(email, password){
-    //Validate Form
+  this.login = function(email, password){
     if(email && password){
+      Meteor.loginWithPassword(email, password, this.createUserCallback);
     }
     console.log(email, password);
   }
 
-
   // Register Function
-  register(email, password, password2){
+  this.register = function(email, password, password2){
     console.log(email, password, password2);
     //Validate Form
-    if(email && password && password == password2){
-      let options = {email, password}
-      Accounts.createUser(options, this.createUserCallback);
-    }else if(password !== password2){
+    //Valid Form
+    if(password !== password2){
       this.errMsg = "Passwords must match.";
+    }else if(email && password && password == password2){
+      let options = {email:email, password:password};
+      Accounts.createUser(options, function(err){
+        if(err){
+          console.log(err);
+          this.errMsg = err.reason;
+        }else{
+          $state.go('home');
+        }
+      });
     }else{
       this.errMsg = "Please fill out all fields";
     }
   }
-
-  //On success login/register takes you back to home state
-  createUserCallback(err, data){
-    if(err) throw console.log(err);
-    console.log(data);
-    $state.go('home');
-  }
-
 }
-
 
 const name = 'loginRegister';
 
@@ -52,7 +50,7 @@ export default angular.module(name, [
 .directive(name, function(){
   return{
     templateUrl: `imports/components/${name}/${name}.html`,
-    controller: LoginRegisterCtrl,
+    controller:  LoginRegisterCtrl,
     controllerAs: name,
     link: function(scope, elem, attrs){
       // Tabs

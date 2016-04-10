@@ -1,18 +1,41 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import {Meteor} from 'meteor/meteor';
 import template from './mainHeader.html';
 import '/public/scripts/hoverIntent.js';
 
-class MainHeaderCtrl {}
+function MainHeaderCtrl($scope, $reactive){
+  'ngInject';
+  $reactive(this).attach($scope);
+  this.currentUser =  Meteor.user();
+  console.log(Meteor.user());
+}
 
-export default angular.module('mainHeader', [
+const name = 'mainHeader';
+
+export default angular.module(name, [
   angularMeteor
 ])
-  .directive('mainHeader', function(){
+  .directive(name, function(){
     return{
-      templateUrl: 'imports/components/mainHeader/mainHeader.html',
+      templateUrl: `imports/components/${name}/${name}.html`,
       controller: MainHeaderCtrl,
+      controllerAs: name,
       link: function(scope, elem, attrs){
+        $("#account").hoverIntent({
+          sensitivity: 3,
+          interval: 60,
+          over: function(){
+            $('.account-dropdown', this).fadeIn(200);
+            $('.account-btn a.button', this).addClass('hovered');
+          },
+          timeout: 220,
+          out: function(){
+            $('.account-dropdown', this).fadeOut(200);
+            $('.account-btn', this).removeClass('hovered');
+          }
+        });
+
         $("#cart").hoverIntent({
           sensitivity: 3,
           interval: 60,

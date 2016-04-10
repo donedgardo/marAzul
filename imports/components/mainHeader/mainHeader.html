@@ -14,7 +14,22 @@
 		<div id="additional-menu">
 			<ul>
 				<li><a href="#">Download Queue <span>(2)</span></a></li>
-				<li><a ui-sref="login">My Account</a></li>
+				<li ng-hide="mainHeader.currentUser"><a ui-sref="login">My Account</a></li>
+				<li ng-show="mainHeader.currentUser">
+					<div id="account">
+						<div class="account-btn">
+						  <a href="#">{{mainHeader.currentUser.emails[0].address}}</a>
+						</div>
+						<div class="account-dropdown">
+							<div class="arrow"></div>
+
+							<div>
+								<span><a href='#'>Logout</a></span>
+							</div>
+
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
