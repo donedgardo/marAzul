@@ -1,7 +1,8 @@
 {
   "galaxy.meteor.com":{
     "env":{
-      "ROOT_URL": "http://marazul.skyrocket.com"
+      "ROOT_URL": "http://marazul.skyrocket.com",
+      "MONGO_URL": "mongodb://edgardo:skyrocketdev11@aws-us-east-1-portal.12.dblayer.com:10738/marAzul-staging"
     }
   },
   "public": {
