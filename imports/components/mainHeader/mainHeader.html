@@ -14,11 +14,11 @@
 		<div id="additional-menu">
 			<ul>
 				<li><a href="#">Download Queue <span>(2)</span></a></li>
-				<li ng-hide="mainHeader.currentUser"><a ui-sref="login">My Account</a></li>
-				<li ng-show="mainHeader.currentUser">
+				<li ng-hide="currentUser"><a ui-sref="login">My Account</a></li>
+				<li ng-show="currentUser">
 					<div id="account">
 						<div class="account-btn">
-						  <a href="#">{{mainHeader.currentUser.emails[0].address}}</a>
+						  <a href="#">{{currentUser.emails[0].address}}</a>
 						</div>
 						<div class="account-dropdown">
 							<div class="arrow"></div>

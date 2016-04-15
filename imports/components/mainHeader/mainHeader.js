@@ -3,18 +3,19 @@ import angularMeteor from 'angular-meteor';
 import {Meteor} from 'meteor/meteor';
 import template from './mainHeader.html';
 import '/public/scripts/hoverIntent.js';
+import angularMeteorAuth from 'angular-meteor-auth';
 
 function MainHeaderCtrl($scope, $reactive){
   'ngInject';
   $reactive(this).attach($scope);
-  this.currentUser =  Meteor.user();
-  console.log(Meteor.user());
+  console.log($scope.currentUser);
 }
 
 const name = 'mainHeader';
 
 export default angular.module(name, [
-  angularMeteor
+  angularMeteor,
+  angularMeteorAuth
 ])
   .directive(name, function(){
     return{

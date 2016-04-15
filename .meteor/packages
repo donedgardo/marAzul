@@ -20,3 +20,6 @@ angular-templates
 pbastowski:angular-babel
 accounts-password
 msavin:mongol
+sanjo:jasmine
+velocity:html-reporter
+velocity:console-reporter
