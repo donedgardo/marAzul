@@ -7,13 +7,21 @@ import './loginRegister.html';
 
 function LoginRegisterCtrl($scope, $state, $reactive) {
   'ngInject';
-  this.errMsg = '';
-  
+  $scope.errMsg = '';
+
   $reactive(this).attach($scope);
 
   this.login = function(email, password){
     if(email && password){
-      Meteor.loginWithPassword(email, password, this.createUserCallback);
+      Meteor.loginWithPassword(email, password, function(err, data){
+        if(err){
+          console.log(err);
+          $scope.errMsg = err.reason;
+          $scope.$digest();
+        }else{
+          $state.go('home');
+        }
+      });
     }
     console.log(email, password);
   }
@@ -24,19 +32,19 @@ function LoginRegisterCtrl($scope, $state, $reactive) {
     //Validate Form
     //Valid Form
     if(password !== password2){
-      this.errMsg = "Passwords must match.";
+      $scope.errMsg = "Passwords must match.";
     }else if(email && password && password == password2){
       let options = {email:email, password:password};
       Accounts.createUser(options, function(err){
         if(err){
           console.log(err);
-          this.errMsg = err.reason;
+          $scope.errMsg = err.reason;
         }else{
           $state.go('home');
         }
       });
     }else{
-      this.errMsg = "Please fill out all fields";
+      $scope.errMsg = "Please fill out all fields";
     }
   }
 }
@@ -78,6 +86,10 @@ export default angular.module(name, [
         .siblings( $this.find('a').attr('href') ).fadeIn();
 
         e.preventDefault();
+      });
+
+      $("a.close").removeAttr("href").click(function(){
+        $(this).parent().fadeOut(200);
       });
 
     }

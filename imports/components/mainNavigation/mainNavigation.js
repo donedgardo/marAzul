@@ -1,13 +1,15 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './mainNavigation.html';
+import uiRouter from 'angular-ui-router';
 import '/public/scripts/superfish.js';
 import '/public/scripts/jquery.jpanelmenu.js';
 
 class MainNavigationCtrl {}
 
 export default angular.module('mainNavigation', [
-  angularMeteor
+  angularMeteor,
+  uiRouter
 ])
   .directive('mainNavigation', function() {
     return{

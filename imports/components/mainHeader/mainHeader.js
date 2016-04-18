@@ -9,6 +9,9 @@ function MainHeaderCtrl($scope, $reactive){
   'ngInject';
   $reactive(this).attach($scope);
   console.log($scope.currentUser);
+  $scope.logout = () =>{
+    Meteor.logout();
+  };
 }
 
 const name = 'mainHeader';

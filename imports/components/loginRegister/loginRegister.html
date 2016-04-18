@@ -18,6 +18,11 @@
         loginRegister.password)" novalidate="">
 
 
+					<div class="notification error closeable" ng-show="errMsg">
+						<p><span>Error!</span> {{errMsg}}</p>
+						<a class="close" href="#"></a>
+					</div>
+
 					<p class="form-row form-row-wide">
 						<label for="username">Username or Email Address: <span class="required">*</span></label>
 						<input type="text" class="input-text" name="username" id="username" value=""
@@ -52,10 +57,12 @@
 
 					<form method="post" class="register" novalidate=""
           ng-submit="loginRegister.register(loginRegister.email, loginRegister.password, loginRegister.password2)">
-					
-					<p class="warn" ng-show="loginRegister.errMsg">
-						{{loginRegister.errMsg}}
-					</p>
+
+					<div class="notification error closeable" ng-show="errMsg">
+						<p><span>Error!</span>{{errMsg}}</p>
+						<a class="close" href="#"></a>
+					</div>
+
 					<p class="form-row form-row-wide">
 							<label for="reg_email">Email Address: <span class="required">*</span></label>
 							<input type="email" class="input-text" name="email" id="reg_email" value=""

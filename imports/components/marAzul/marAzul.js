@@ -9,6 +9,7 @@ import footerMain from '../footerMain/footer';
 import landingPage from '../landingPage/landingPage';
 import loginPage from '../loginPage/loginPage';
 import loginRegister from '../loginRegister/loginRegister';
+import recursosPage from '../recursosPage/recursosPage';
 
 
 import './marAzul.html';
@@ -27,6 +28,7 @@ export default angular.module(name, [
   mainHeader.name,
   mainNavigation.name,
   footerMain.name,
+  recursosPage.name
 ])
 .component(name,{
   templateUrl: `imports/components/${name}/${name}.html`,
