@@ -1,0 +1,24 @@
+<form class="container" name="form">
+  <div class="checkout-section active"><span>*</span>Category Form</div>
+
+  <div class="notification success closeable" ng-show="categoryForm.saved">
+    <p><span>Success!</span> You did it.</p>
+    <a class="close"></a>
+  </div>
+  <div class="notification error closeable" ng-show="categoryForm.error">
+    <p><span>Error!</span>{{categoryForm.error}}</p>
+    <a class="close"></a>
+  </div>
+  <div class="checkout-content">
+    <div class="fullwidth">
+      <label class="billing">Category Name: <abbr>*</abbr></label>
+      <input type="text" ng-model="categoryForm.category.name" required/>
+    </div>
+    <div class="fullwidth">
+      <label class="billing">Category description: <abbr>*</abbr></label>
+      <textarea type="text" ng-model="categoryForm.category.description" cols="100" rows="3" spellcheck="true"
+      required></textarea>
+    </div>
+    <a ng-click="categoryForm.submit(categoryForm.category)" class="continue button color" type="submit">Save</a>
+  </div>
+</form>

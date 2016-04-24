@@ -19,8 +19,8 @@ if (Meteor.isServer) {
 let Schema= {};
 
 Schema.Categories = new SimpleSchema({
-  name: {type:String},
-  description: {type:String, optional:true},
+  name: {type:String, unique:true},
+  description: {type:String},
   created_at: {
     type:Date,
     autoValue: function(){

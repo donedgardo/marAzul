@@ -1,0 +1,9 @@
+<div class="container">
+  <ul ng-repeat="category in categoryList.categories">
+    <li>
+      {{category.name}}
+      <a ng-click='categoryList.edit(category)'>Edit</a>
+      <a ng-click="categoryList.remove(category)">Delete</a>
+    </li>
+  </ul>
+</div>
