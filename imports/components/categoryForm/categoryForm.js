@@ -23,9 +23,12 @@ class CategoryForm {
       }else{
         console.log(data);
         this.saved = true;
-        this.category = null;
       }
     });
+    this.reset();
+  }
+  reset(){
+    this.category = {};
   }
 }
 
@@ -33,15 +36,8 @@ const name = 'categoryForm';
 export default angular.module(name, [
   angularMeteor
 ])
-.directive(name, function(){
-  return{
+.component(name,{
     templateUrl: `imports/components/${name}/${name}.html`,
     controller: CategoryForm,
     controllerAs: name,
-    link:function(){
-      $("a.close").removeAttr("href").click(function(){
-        $(this).parent().fadeOut(200);
-      });
-    }
-  }
 });
