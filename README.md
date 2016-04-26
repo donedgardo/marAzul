@@ -43,4 +43,10 @@ We are using Javascript ECMAScript 6 (new standard for javascript development).
 Here we define testable and reusable components, making our app more modular and
 easier to maintain.
 
-[Here is the best link I have found explaining ES6.](http://juristr.com/blog/2015/08/jump-start-es2015/)
+
+## Tutorials
+
+[Meteor Angular Tutorial (Basic).](https://www.meteor.com/tutorials/angular/creating-an-app)
+[Meteor Angular Tutorial (Full)(RECOMENDED)](http://www.angular-meteor.com/)
+[Here is the best link I have found explaining Javascript new ES6.](http://juristr.com/blog/2015/08/jump-start-es2015/)
+[Quick Video Crash course on Git](https://www.codeschool.com/learn/git)
