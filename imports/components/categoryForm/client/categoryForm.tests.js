@@ -31,12 +31,13 @@ describe('CategoryForm', ()=> {
       });
 
       it('should insert a new category', ()=>{
-        expect(Categories.insert).toHaveBeenCalledWith(category, (err, data)=>{});
+        expect(Categories.insert).toHaveBeenCalled();
       });
 
-      it('should call reset()', ()=>{
+      it('should reset',()=>{
         expect(controller.reset).toHaveBeenCalled();
       });
+
     });
   });
 });

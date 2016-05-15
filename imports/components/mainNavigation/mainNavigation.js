@@ -4,6 +4,7 @@ import template from './mainNavigation.html';
 import uiRouter from 'angular-ui-router';
 import '/public/scripts/superfish.js';
 import '/public/scripts/jquery.jpanelmenu.js';
+import './mainNavigation.css';
 
 class MainNavigationCtrl {}
 

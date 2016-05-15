@@ -23,12 +23,12 @@ class CategoryForm {
       }else{
         console.log(data);
         this.saved = true;
+        this.reset();
       }
     });
-    this.reset();
   }
   reset(){
-    this.category = {};
+    this.category = null;
   }
 }
 

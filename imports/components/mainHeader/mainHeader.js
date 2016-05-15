@@ -5,6 +5,8 @@ import template from './mainHeader.html';
 import '/public/scripts/hoverIntent.js';
 import angularMeteorAuth from 'angular-meteor-auth';
 
+import './mainHeader.less';
+
 function MainHeaderCtrl($scope, $reactive){
   'ngInject';
   $reactive(this).attach($scope);

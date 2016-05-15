@@ -1,0 +1,12 @@
+.menu{
+  background-color:white;
+  margin:0px;
+}
+
+.menu li a{
+  color:#414145;
+}
+
+.arrows .with-ul:after{
+  border-top-color:#414145;
+}
