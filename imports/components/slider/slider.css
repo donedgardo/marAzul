@@ -1,3 +1,6 @@
+#slider{
+  width:100% !important;
+}
 @media (max-width: 736px){
   #slider{
     display:none;
